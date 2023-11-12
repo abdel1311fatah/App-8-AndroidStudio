@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+// ficar el layout weight a 2 per a que s ajusti be
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
