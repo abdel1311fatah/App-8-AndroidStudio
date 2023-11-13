@@ -30,11 +30,6 @@ public class MainActivity extends AppCompatActivity {
         appname.setText("App8_2023_24");
         resultat = (TextView) findViewById(R.id.resultat);
         reset = (Button) findViewById(R.id.btnReset);
-        sumar = (Button) findViewById(R.id.btnSuma);
-        restar = (Button) findViewById(R.id.btnResta);
-        multi = (Button) findViewById(R.id.btnMulti);
-        div = (Button) findViewById(R.id.btnDiv);
-        igual = (Button) findViewById(R.id.btnIgual);
     }
 
     public void numeros(View view) {
@@ -54,11 +49,67 @@ public class MainActivity extends AppCompatActivity {
             char[] texte = new char[resultat.getText().toString().length()];
             texte = resultat.getText().toString().toCharArray();
             for (int i = 0; i < resultat.getText().toString().length(); i++) {
-                if(texte[i] == '+' || texte[i] == '-' || texte[i] == '*' || texte[i] == '/'){
+                if (texte[i] == '+' || texte[i] == '-' || texte[i] == '*' || texte[i] == '/') {
                     texte[i] = btn.getText().toString().charAt(0);
                 }
             }
         }
+
+    }
+
+    public void igual(View view) {
+        String expresion = resultat.getText().toString();
+
+        if (expresion.contains("+")) {
+            realitzarOperacio(expresion, '+');
+        } else if (expresion.contains("-")) {
+            realitzarOperacio(expresion, '-');
+        } else if (expresion.contains("*")) {
+            realitzarOperacio(expresion, '*');
+        } else if (expresion.contains("/")) {
+            realitzarOperacio(expresion, '/');
+        } else {
+           resultat.setText("No hi ha operador");
+        }
+    }
+
+    private void realitzarOperacio(String expresion, char operador) {
+        String operadorString = Character.toString(operador);
+        String[] numeros = expresion.split(operadorString);
+        long resultatOperacio = 0;
+
+        if (numeros.length != 2) {
+            resultat.setText("Error in the mathematical expression");
+        } else {
+            long n1 = Integer.parseInt(numeros[0].trim()); // Per treure els espais en blanc
+            long n2 = Integer.parseInt(numeros[1].trim());
+
+            switch (operador) {
+                case '+':
+                    resultatOperacio = n1 + n2;
+                    break;
+                case '-':
+                    resultatOperacio = n1 - n2;
+                    break;
+                case '*':
+                    resultatOperacio = n1 * n2;
+                    break;
+                case '/':
+                    if (n2 != 0) {
+                        resultatOperacio = n1 / n2;
+                    } else {
+                        resultat.setText("Cannot divide by 0");
+                        return;
+                    }
+                    break;
+            }
+            resultat.setText(String.valueOf(resultatOperacio));
+        }
+    }
+
+    public void reset(View view){
+
+        resultat.setText("");
 
     }
 

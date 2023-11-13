@@ -145,7 +145,7 @@
                 android:layout_weight="1"
                 android:background="#E83838"
                 android:fadeScrollbars="false"
-                android:onClick="numeros"
+                android:onClick="operadors"
                 android:text="+" />
 
             <Button
@@ -165,7 +165,7 @@
                 android:layout_weight="1"
                 android:background="#E83838"
                 android:fadeScrollbars="false"
-                android:onClick="numeros"
+                android:onClick="operadors"
                 android:text="-" />
         </TableRow>
 
@@ -178,7 +178,7 @@
                 android:layout_weight="1"
                 android:background="#E83838"
                 android:fadeScrollbars="false"
-                android:onClick="numeros"
+                android:onClick="operadors"
                 android:text="*" />
 
             <Button
@@ -188,6 +188,7 @@
                 android:layout_weight="1"
                 android:background="#E83838"
                 android:fadeScrollbars="false"
+                android:onClick="igual"
                 android:text="=" />
 
             <Button
@@ -197,6 +198,7 @@
                 android:layout_weight="1"
                 android:background="#E83838"
                 android:fadeScrollbars="false"
+                android:onClick="operadors"
                 android:text="/" />
 
         </TableRow>
@@ -210,6 +212,7 @@
                 android:layout_weight="2"
                 android:background="#E83838"
                 android:fadeScrollbars="false"
+                android:onClick="reset"
                 android:text="Reset" />
 
         </TableRow>
